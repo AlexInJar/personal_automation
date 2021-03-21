@@ -14,9 +14,10 @@ with open('e-mail.txt') as fp:
 
 # me == the sender's email address
 # you == the recipient's email address
-msg['Subject'] = 'The contents of {}'.format('e-mail.txt')
-msg['From'] = 'zj61@duke.edu'
+msg['Subject'] = 'Sent from VM'
+msg['From'] = 'dl287@duke.edu'
 msg['To'] = 'zj61@duke.edu'
+print(msg)
 
 # Send the message via our own SMTP server.
 s = smtplib.SMTP('localhost')
