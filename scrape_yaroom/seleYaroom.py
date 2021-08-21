@@ -8,19 +8,23 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.ui import WebDriverWait
 import time
+import json
 
 class YaroomScrap(object):
     def __init__(self) -> None:
         super().__init__()
         opts = ChromeOptions()
-        # opts.add_argument("--headless")
+        opts.add_argument("--headless")
+        opts.add_argument("window-size=1400,600")
         self.driver = webdriver.Chrome(options=opts)
+        self.driver.set_window_size(1920, 1080)
         self.roomdic = {
             'AB':16959,
             'CC':16960,
             'IB':36669
         }
         self.wait = WebDriverWait(self.driver,10)
+        self.reservations = dict()
         # print(self.driver.page_source)
 
     def loginGuest(self):
@@ -61,13 +65,16 @@ class YaroomScrap(object):
                     # time.sleep(5)
                     divSchedule = divCell.find_element_by_css_selector(r'div.schedule-meetings')
                     print(divSchedule.get_attribute('innerHTML'))
-                    reservLst = divSchedule.find_element_by_css_selector(r'a').get_attribute('ya-tooltip').split("<br>")
-                    avail_dic[roomLst[i-1]] = {
-                        'reserver' : reservLst[0],
-                        'time' : reservLst[1]
-                    }
+                    bookaLst = divSchedule.find_elements_by_css_selector(r'a')
+                    # .get_attribute('ya-tooltip').split("<br>")
+                    infLst = [a.get_attribute('ya-tooltip').split("<br>") for a in bookaLst]
+                    avail_dic[roomLst[i-1]] = [{
+                        'reserver' : inf[0],
+                        'time' : inf[1]
+                    } for inf in infLst]
 
-            print(avail_dic)
+            # parsed = json.loads(avail_dic)
+            print(json.dumps(avail_dic, indent=4, sort_keys= False))
 
             if((Room == 'CC') or (i == 1)):
                 return
@@ -77,11 +84,25 @@ class YaroomScrap(object):
                     EC.visibility_of_element_located((By.CSS_SELECTOR,r'#pageView2 > a'))
                 ).click()
 
+        self.reservations[Room] = avail_dic
+
+    def standardScrape(self,numWeek):
+        self.loginGuest()
+        self.ScrapeRoom('AB',numWeek)
+        self.ScrapeRoom('CC',numWeek)
+        self.ScrapeRoom('IB',numWeek)
+
+    def getReservations(self):
+        return self.reservations
+
+        
+
 
 def main():
     scraper = YaroomScrap()
-    scraper.loginGuest()
-    scraper.ScrapeRoom('AB',4)
+    # scraper.loginGuest()
+    # scraper.ScrapeRoom('AB',4)
+    scraper.standardScrape(4)
     time.sleep(10)
 
 if __name__ == '__main__' :
