@@ -74,10 +74,10 @@ class YaroomScrap(object):
                     } for inf in infLst]
 
             # parsed = json.loads(avail_dic)
-            print(json.dumps(avail_dic, indent=4, sort_keys= False))
+            # print(json.dumps(avail_dic, indent=4, sort_keys= False))
 
             if((Room == 'CC') or (i == 1)):
-                return
+                break
             else:
                 time.sleep(10)
                 self.wait.until(
