@@ -1,0 +1,257 @@
+{
+    "AB": {
+        "AB 1076 (Team Room)": null,
+        "AB 1078 (Team Room)": null,
+        "AB 1079 (Seminar 1A)": null,
+        "AB 1082 (Team Room)": null,
+        "AB 1084 (Team Room)": [
+            {
+                "reserver": "reserved for William",
+                "time": "15:00 - 16:00"
+            }
+        ],
+        "AB 1087 (Seminar 1B)": [
+            {
+                "reserver": "Graduate Orientation",
+                "time": "09:00 - 14:30"
+            }
+        ],
+        "AB 2021": [
+            {
+                "reserver": "Booked by Danni Huang",
+                "time": "09:15 - 10:00"
+            },
+            {
+                "reserver": "Booked by Yifan Cao",
+                "time": "10:30 - 12:00"
+            },
+            {
+                "reserver": "Booked by Danni Huang",
+                "time": "13:15 - 14:30"
+            },
+            {
+                "reserver": "Booked by Lily Lv",
+                "time": "15:00 - 15:40"
+            },
+            {
+                "reserver": "Booked by Danni Huang",
+                "time": "16:00 - 17:30"
+            }
+        ],
+        "AB 2052 (Board Room)": [
+            {
+                "reserver": "Booked by Cheng Yang",
+                "time": "09:15 - 10:00"
+            },
+            {
+                "reserver": "Booked by Tiedan Zhang",
+                "time": "10:00 - 11:00"
+            },
+            {
+                "reserver": "Booked by Cynthia Cao",
+                "time": "15:00 - 16:00"
+            },
+            {
+                "reserver": "Booked by Cynthia Cao",
+                "time": "16:00 - 18:00"
+            }
+        ],
+        "AB 2075 (next to Ball Room)": null,
+        "AB 2103 (Seminar 2A)": null,
+        "AB 2107 (Seminar 2B)": null,
+        "AB 2116 (Team Room)": null,
+        "AB 2118 (Team Room)": null,
+        "AB 2120 (Team Room)": null,
+        "AB 2122 (Team Room)": [
+            {
+                "reserver": "Booked by Pippa",
+                "time": "10:30 - 12:30"
+            },
+            {
+                "reserver": "Booked by Joy Lu",
+                "time": "13:00 - 15:00"
+            },
+            {
+                "reserver": "Booked by Ningxin Li",
+                "time": "16:00 - 17:00"
+            }
+        ],
+        "AB 2202 (Blue Room A)": [
+            {
+                "reserver": "Booked by Xiaosen Liu",
+                "time": "10:00 - 12:00"
+            },
+            {
+                "reserver": "Booked by Wendie Lu",
+                "time": "16:00 - 17:00"
+            }
+        ],
+        "AB 2204 (Blue Room B)": [
+            {
+                "reserver": "Booked by Tiedan Zhang",
+                "time": "11:30 - 12:30"
+            },
+            {
+                "reserver": "Booked by Yangyang Geng",
+                "time": "16:50 - 17:30"
+            }
+        ],
+        "AB 2206 (Blue Room C)": [
+            {
+                "reserver": "Booked by Qiling Wang",
+                "time": "16:00 - 17:00"
+            }
+        ],
+        "AB 2F Foyer by Ballroom": null,
+        "AB 3003 (near Mother Room)": null,
+        "AB 3031 (north section, 3F)": null,
+        "AB 3033 (Seminar Room, north section, 3F)": null,
+        "AB 3074 (Team Room)": null,
+        "AB 3076 (Team Room)": null,
+        "AB 3101 (Seminar 3A)": null,
+        "AB 3103 (Seminar 3B)": null,
+        "AB 3106 (Team Room)": null,
+        "AB 3107 (Seminar 3C)": null,
+        "AB 3108 (Team Room)": null,
+        "AB 3109 (Seminar 3D)": [
+            {
+                "reserver": "reserved for Alex",
+                "time": "14:00 - 16:00"
+            }
+        ],
+        "AB 3112 (Team Room)": null,
+        "AB 3114 (Team Room)": [
+            {
+                "reserver": "reserved for Yuanyuan",
+                "time": "09:00 - 17:30"
+            }
+        ],
+        "AB 3116 (Team Room)": [
+            {
+                "reserver": "reserved for Yiru",
+                "time": "00:00 - midnight"
+            }
+        ],
+        "AB 3118 (Team Room)": null,
+        "AB 3122 (south section, 3F)": null,
+        "AB Auditorium": [
+            {
+                "reserver": "UG orientation",
+                "time": "00:00 - midnight"
+            }
+        ],
+        "AB Ballroom": [
+            {
+                "reserver": "UG orientation week",
+                "time": "00:00 - midnight"
+            }
+        ],
+        "AB Ballroom A": [
+            {
+                "reserver": "UG orientation week",
+                "time": "00:00 - midnight"
+            }
+        ],
+        "AB Ballroom B": [
+            {
+                "reserver": "UG orientation week",
+                "time": "00:00 - midnight"
+            }
+        ],
+        "Water Pavilion": null
+    },
+    "CC": {
+        "CC 1094 (Team Room)": null,
+        "CC 1095 (Conference Room)": null,
+        "CC 1096 (Team Room)": null,
+        "CC 1098 (Team Room)": null,
+        "CC 1100 (Team Room)": null,
+        "CC 1102 (Team Room)": null,
+        "CC 1103 (Conference Room)": null,
+        "CC 1104 (Team Room)": null,
+        "CC 1106 (Team Room)": null,
+        "CC 1108 (Team Room)": null
+    },
+    "IB": {
+        "IB 1010 (Seminar Room)": null,
+        "IB 1011 (Telepresence Room)": null,
+        "IB 1012": null,
+        "IB 1017": [
+            {
+                "reserver": "Booked by Fan Li",
+                "time": "13:00 - 14:00"
+            }
+        ],
+        "IB 1046 (Classroom)": [
+            {
+                "reserver": "UG orientation",
+                "time": "00:00 - midnight"
+            }
+        ],
+        "IB 1047 (Classroom)": [
+            {
+                "reserver": "UG Orientation",
+                "time": "00:00 - midnight"
+            }
+        ],
+        "IB 1050 (Classroom)": null,
+        "IB 1051 (Classroom)": null,
+        "IB 1052 (Team Room)": null,
+        "IB 1053 (Team Room)": null,
+        "IB 1055 (Classroom)": null,
+        "IB 1056 (Classroom)": null,
+        "IB 2001 (Team Room)": null,
+        "IB 2013": [
+            {
+                "reserver": "Booked by Kathy",
+                "time": "10:30 - 11:30"
+            }
+        ],
+        "IB 2025 (Seminar Room)": null,
+        "IB 2026": [
+            {
+                "reserver": "Booked by Jiayuan Li",
+                "time": "09:00 - 12:00"
+            }
+        ],
+        "IB 2027 (Team Room)": null,
+        "IB 2028 ( Classroom)": null,
+        "IB 2050 (Seminar Room)": null,
+        "IB 2069 (Team Room)": [
+            {
+                "reserver": "reserved for Austin",
+                "time": "11:30 - 12:30"
+            }
+        ],
+        "IB 2071 (Classroom)": null,
+        "IB 3001": [
+            {
+                "reserver": "Booked by Jiali Cheng",
+                "time": "08:30 - 10:30"
+            }
+        ],
+        "IB 3017 (Team Room)": [
+            {
+                "reserver": "Booked by Jiali Cheng",
+                "time": "08:30 - 10:30"
+            }
+        ],
+        "IB 3032 (Team Room)": null,
+        "IB 3043": null,
+        "IB 3068 (Team Room)": [
+            {
+                "reserver": "reserved for Annemieke",
+                "time": "10:45 - 12:15"
+            }
+        ],
+        "IB 3069": null,
+        "IB 3105 (Study Room)": null,
+        "IB 3106 (Classroom)": null,
+        "IB Lecture Hall": [
+            {
+                "reserver": "Orientation Week Session",
+                "time": "00:00 - midnight"
+            }
+        ]
+    }
+}
