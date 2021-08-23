@@ -102,6 +102,10 @@
             {
                 "reserver": "Booked by Wei Yin",
                 "time": "15:00 - 17:00"
+            },
+            {
+                "reserver": "Booked by Sunny Zhang",
+                "time": "17:30 - 18:30"
             }
         ],
         "AB 2075 (next to Ball Room)": null,
@@ -134,7 +138,12 @@
             }
         ],
         "AB 2120 (Team Room)": null,
-        "AB 2122 (Team Room)": null,
+        "AB 2122 (Team Room)": [
+            {
+                "reserver": "Booked by Tiedan Zhang",
+                "time": "10:30 - 11:30"
+            }
+        ],
         "AB 2202 (Blue Room A)": [
             {
                 "reserver": "Booked by Xuyan Gao",
@@ -241,7 +250,12 @@
         ],
         "AB 3112 (Team Room)": null,
         "AB 3114 (Team Room)": null,
-        "AB 3116 (Team Room)": null,
+        "AB 3116 (Team Room)": [
+            {
+                "reserver": "reserved for Alex",
+                "time": "09:00 - 10:00"
+            }
+        ],
         "AB 3118 (Team Room)": [
             {
                 "reserver": "reserved for Alex",
@@ -499,7 +513,16 @@
                 "time": "14:45 - 17:15"
             }
         ],
-        "IB 2026": null,
+        "IB 2026": [
+            {
+                "reserver": "Booked by Jie Yang",
+                "time": "10:00 - 11:00"
+            },
+            {
+                "reserver": "Booked by Tiedan Zhang",
+                "time": "13:30 - 14:30"
+            }
+        ],
         "IB 2027 (Team Room)": [
             {
                 "reserver": "ECE TA Office Hour",
@@ -563,10 +586,6 @@
             }
         ],
         "IB 3001": [
-            {
-                "reserver": "Booked by Wenyi Jiang",
-                "time": "10:30 - 14:00"
-            },
             {
                 "reserver": "Booked by Jiali Cheng",
                 "time": "14:00 - 16:00"

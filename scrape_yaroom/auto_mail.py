@@ -4,6 +4,7 @@ from datetime import datetime, date, timedelta
 from pytz import timezone
 from seleYaroom import YaroomScrap
 import json
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 
@@ -79,5 +80,9 @@ def main():
     s.quit()
 
 if __name__ == '__main__':
-    # main0()
-    getScrapedResults()
+    sched = BlockingScheduler()
+
+    # Runs from Monday to Friday at 5:30 (am) until
+    sched.add_job(main0, 'cron', day_of_week='mon-fri', hour=6, minute=10)
+    sched.start()
+    # getScrapedResults()
