@@ -1,10 +1,33 @@
 import smtplib
 from email.message import EmailMessage
+from tabulate import tabulate
+from email.mime.multipart import MIMEMultipart
 from datetime import datetime, date, timedelta
 from pytz import timezone
 from seleYaroom import YaroomScrap
 import json
 from apscheduler.schedulers.blocking import BlockingScheduler
+import pandas as pd
+
+text = """
+Hello, Friend.
+
+Here is your data:
+
+{table}
+
+Regards,
+
+Me"""
+
+html = """
+<html><body><p>Hello, Friend.</p>
+<p>Here is your data:</p>
+{table}
+<p>Regards,</p>
+<p>Me</p>
+</body></html>
+"""
 
 
 
@@ -38,18 +61,27 @@ def getScrapedResults():
     return reserv
       
 def main0():
-    scrape_result = getScrapedResults()
-    content = '''Todays reservation: \n \n {}'''.format(json.dumps(scrape_result, indent=4))
-    msg = EmailMessage()
-    msg.set_content(content)
-    msg['Subject'] = 'Free Rooms Status'
-    msg['From'] = 'Alex Jin'
-    msg['To'] = 'zj61@duke.edu'
-    print(msg)
+    # scrape_result = getScrapedResults()
+    with open('jsons/2021-08-22.json','r') as f:
+        scrape_result = json.loads(f.read())
+    buid_dic = dict()
+    for building,reservation in scrape_result.items():
+        buid_dic[building] = {
+            room : '\n'.join(["{}\t{}".format(bookDic['reserver'],bookDic['time']) for bookDic in booking]) if bool(booking) else '\n' for room, booking in reservation.items()
+        }
+    dfAB = pd.DataFrame([buid_dic['AB']]).transpose()
+    print(tabulate(dfAB))
+    # content = '''Todays reservation: \n \n {}'''.format(json.dumps(scrape_result, indent=4))
+    # msg = EmailMessage()
+    # msg.set_content(content)
+    # msg['Subject'] = 'Free Rooms Status'
+    # msg['From'] = 'Alex Jin'
+    # msg['To'] = 'zj61@duke.edu'
+    # print(msg)
 
-    s = smtplib.SMTP('localhost')
-    s.send_message(msg)
-    s.quit()
+    # s = smtplib.SMTP('localhost')
+    # s.send_message(msg)
+    # s.quit()
     
 
 def main():
@@ -80,9 +112,10 @@ def main():
     s.quit()
 
 if __name__ == '__main__':
-    sched = BlockingScheduler()
+    main0()
+    # sched = BlockingScheduler()
 
-    # Runs from Monday to Friday at 5:30 (am) until
-    sched.add_job(main0, 'cron', day_of_week='mon-fri', hour=6, minute=10)
-    sched.start()
+    # # Runs from Monday to Friday at 5:30 (am) until
+    # sched.add_job(main0, 'cron', day_of_week='mon-fri', hour=6, minute=10)
+    # sched.start()
     # getScrapedResults()
