@@ -123,13 +123,22 @@ def main0():
     # msg = EmailMessage()
     # msg.set_content(content)
     msg['Subject'] = 'Free Rooms Status'
-    msg['From'] = 'fl180@duke.edu'
+    msg['From'] = 'lf180@duke.edu'
     msg['To'] = 'zj61@duke.edu'
     # print(msg)
 
-    # s = smtplib.SMTP('localhost')
-    # s.send_message(msg)
-    # s.quit()
+    s = smtplib.SMTP('localhost')
+    s.send_message(msg)
+    s.quit()
+
+
+    msg['From'] = 'xs90@duke.edu'
+    msg['To'] = 'xs90@duke.edu'
+    # print(msg)
+
+    s = smtplib.SMTP('localhost')
+    s.send_message(msg)
+    s.quit()
     
 
 def main():
@@ -160,10 +169,10 @@ def main():
     s.quit()
 
 if __name__ == '__main__':
-    main0()
-    # sched = BlockingScheduler()
+    # main0()
+    sched = BlockingScheduler()
 
-    # # Runs from Monday to Friday at 5:30 (am) until
-    # sched.add_job(main0, 'cron', day_of_week='mon-fri', hour=6, minute=10)
-    # sched.start()
-    # getScrapedResults()
+    # Runs from Monday to Friday at 5:30 (am) until
+    sched.add_job(main0, 'cron', day_of_week='mon-fri', hour=6, minute=10)
+    sched.start()
+    getScrapedResults()
