@@ -112,8 +112,10 @@ def main0():
         }
     dfAB, dfCC, dfIB = pd.DataFrame([buid_dic['AB']]).transpose(), pd.DataFrame([buid_dic['CC']]).transpose(), pd.DataFrame([buid_dic['IB']]).transpose()
     # print(tabulate(dfAB))
-    text = text.format(table=tabulate(dfAB,dfCC,dfIB, headers="firstrow", tablefmt="grid"))
-    html = html.format(table=tabulate(dfAB,dfCC,dfIB, headers="firstrow", tablefmt="html"))
+    txtAB, txtCC, txtIB = tabulate(dfAB, headers="firstrow", tablefmt="grid"),tabulate(dfIB, headers="firstrow", tablefmt="grid"),tabulate(dfCC, headers="firstrow", tablefmt="grid")
+    htmlAB, htmlCC, htmlIB = tabulate(dfAB, headers="firstrow", tablefmt="html"),tabulate(dfIB, headers="firstrow", tablefmt="html"),tabulate(dfCC, headers="firstrow", tablefmt="html")
+    text = text.format(txtAB, txtCC, txtIB)
+    html = html.format(htmlAB, htmlCC, htmlIB)
     msg = MIMEMultipart(
     "alternative", None, [MIMEText(text), MIMEText(html,'html')])
 
