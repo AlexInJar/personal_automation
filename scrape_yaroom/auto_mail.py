@@ -108,7 +108,7 @@ def main0():
     buid_dic = dict()
     for building,reservation in scrape_result.items():
         buid_dic[building] = {
-            room : '\n'.join(["{}\t{}".format(bookDic['reserver'],bookDic['time']) for bookDic in booking]) if bool(booking) else '\n' for room, booking in reservation.items()
+            room : '\n\n\n'.join(["{}\t\t{}".format(bookDic['reserver'],bookDic['time']) for bookDic in booking]) if bool(booking) else '\n' for room, booking in reservation.items()
         }
     dfAB, dfCC, dfIB = pd.DataFrame([buid_dic['AB']]).transpose(), pd.DataFrame([buid_dic['CC']]).transpose(), pd.DataFrame([buid_dic['IB']]).transpose()
     # print(tabulate(dfAB))
