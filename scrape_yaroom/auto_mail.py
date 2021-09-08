@@ -2,6 +2,7 @@ import smtplib
 from email.message import EmailMessage
 from tabulate import tabulate
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from datetime import datetime, date, timedelta
 from pytz import timezone
 from seleYaroom import YaroomScrap
@@ -13,8 +14,12 @@ text = """
 Hello, Friend.
 
 Here is your data:
-
-{table}
+AB: \n
+{tableAB}
+CC: \n
+{tableCC}
+IB: \n
+{tableIB}
 
 Regards,
 
@@ -23,7 +28,13 @@ Me"""
 html = """
 <html><body><p>Hello, Friend.</p>
 <p>Here is your data:</p>
-{table}
+AB: \n
+{tableAB}
+CC: \n
+{tableCC}
+IB: \n
+{tableIB}
+
 <p>Regards,</p>
 <p>Me</p>
 </body></html>
@@ -61,22 +72,57 @@ def getScrapedResults():
     return reserv
       
 def main0():
-    # scrape_result = getScrapedResults()
-    with open('jsons/2021-08-22.json','r') as f:
-        scrape_result = json.loads(f.read())
+    text = """
+    Hello, Friend.
+
+    Reservation today:
+    AB: \n
+    {tableAB}
+    CC: \n
+    {tableCC}
+    IB: \n
+    {tableIB}
+
+    Regards,
+
+    Me"""
+
+    html = """
+    <html><body><p>Hello, Friend.</p>
+    <p>Reseravation today:</p>
+    AB: \n
+    {tableAB}
+    CC: \n
+    {tableCC}
+    IB: \n
+    {tableIB}
+
+    <p>Regards,</p>
+    <p>Me</p>
+    </body></html>
+    """
+
+    scrape_result = getScrapedResults()
+    # with open('jsons/2021-08-22.json','r') as f:
+    #     scrape_result = json.loads(f.read())
     buid_dic = dict()
     for building,reservation in scrape_result.items():
         buid_dic[building] = {
             room : '\n'.join(["{}\t{}".format(bookDic['reserver'],bookDic['time']) for bookDic in booking]) if bool(booking) else '\n' for room, booking in reservation.items()
         }
-    dfAB = pd.DataFrame([buid_dic['AB']]).transpose()
-    print(tabulate(dfAB))
+    dfAB, dfCC, dfIB = pd.DataFrame([buid_dic['AB']]).transpose(), pd.DataFrame([buid_dic['CC']]).transpose(), pd.DataFrame([buid_dic['IB']]).transpose()
+    # print(tabulate(dfAB))
+    text = text.format(table=tabulate(dfAB,dfCC,dfIB, headers="firstrow", tablefmt="grid"))
+    html = html.format(table=tabulate(dfAB,dfCC,dfIB, headers="firstrow", tablefmt="html"))
+    msg = MIMEMultipart(
+    "alternative", None, [MIMEText(text), MIMEText(html,'html')])
+
     # content = '''Todays reservation: \n \n {}'''.format(json.dumps(scrape_result, indent=4))
     # msg = EmailMessage()
     # msg.set_content(content)
-    # msg['Subject'] = 'Free Rooms Status'
-    # msg['From'] = 'Alex Jin'
-    # msg['To'] = 'zj61@duke.edu'
+    msg['Subject'] = 'Free Rooms Status'
+    msg['From'] = 'fl180@duke.edu'
+    msg['To'] = 'zj61@duke.edu'
     # print(msg)
 
     # s = smtplib.SMTP('localhost')
